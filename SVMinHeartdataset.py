@@ -23,8 +23,7 @@ for score in scores:
     print("# Score: %s" % score)
     print()
 
-    clf = GridSearchCV(SVC(), tuned_parameters, cv=5,
-                       scoring='%s_macro' % score)
+    clf = GridSearchCV(SVC(), tuned_parameters, n_jobs=-1, cv=5, scoring='%s_macro' % score)
     clf.fit(X_train, y_train)
 
     print()
